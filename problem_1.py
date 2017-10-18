@@ -23,6 +23,26 @@
 #                     return [i, j]
 #         return None
 
+# use sorted
+# class Solution(object):
+#     def twoSum(self, nums, target):
+#         """
+#         :type nums: List[int]
+#         :type target: int
+#         :rtype: List[int]
+#         """
+#         _nums = sorted(zip(range(len(nums)), nums), key=lambda x: x[1])
+#         p_s = 0
+#         p_e = len(nums) - 1
+#         while p_s < p_e:
+#             if _nums[p_s][1] + _nums[p_e][1] == target:
+#                 return [_nums[p_s][0], _nums[p_e][0]]
+#             elif _nums[p_s][1] + _nums[p_e][1] < target:
+#                 p_s += 1
+#             else:
+#                 p_e -= 1
+#         return None
+
 
 # fast solution
 class Solution(object):
@@ -33,8 +53,8 @@ class Solution(object):
         :rtype: List[int]
         """
         dic = dict()
-        for idx in range(len(nums)):
-            if (target - nums[idx]) in dic:
-                return [dic[target - nums[idx]], idx]
-            dic[nums[idx]] = idx
+        for idx, val in enumerate(nums):
+            if (target - val) in dic:
+                return [dic[target - val], idx]
+            dic[val] = idx
         return None
