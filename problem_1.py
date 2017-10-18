@@ -10,6 +10,21 @@
 
 
 # slow solution
+# class Solution(object):
+#     def twoSum(self, nums, target):
+#         """
+#         :type nums: List[int]
+#         :type target: int
+#         :rtype: List[int]
+#         """
+#         for i in range(len(nums) - 1):
+#             for j in range(i + 1, len(nums)):
+#                 if nums[i] + nums[j] == target:
+#                     return [i, j]
+#         return None
+
+
+# fast solution
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -17,8 +32,9 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i in range(len(nums) - 1):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+        dic = dict()
+        for idx in range(len(nums)):
+            if (target - nums[idx]) in dic:
+                return [dic[target - nums[idx]], idx]
+            dic[nums[idx]] = idx
         return None
