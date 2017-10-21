@@ -44,6 +44,7 @@
 #         return None
 
 
+
 # fast solution
 class Solution(object):
     def twoSum(self, nums, target):
